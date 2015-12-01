@@ -157,6 +157,217 @@ function () {
 }
 ```
 
+#### Put `else` on the same line as your `if` block's closing brace
+
+```js
+// bad
+if (test) {
+	thing1();
+	thing2();
+}
+else {
+	thing3();
+}
+
+// good
+if (test) {
+	thing1();
+	thing2();
+} else {
+	thing3();
+}
+```
+
+### Comments
+
+#### Use `/** ... */` for multi-line comments
+
+Include a description, specify types and values for all parameters and return values [using JSDoc](http://usejsdoc.org/).
+
+```js
+// bad
+// make() returns a new element
+// based on the passed in tag name
+//
+// @param {String} tag
+// @return {Element} element
+function make (tag) {
+	// ...stuff...
+	return element;
+}
+
+// good
+/**
+ * make() returns a new element
+ * based on the passed in tag name
+ *
+ * @param {String} tag
+ * @return {Element} element
+ */
+function make (tag) {
+	// ...stuff...
+	return element;
+}
+```
+
+#### Use `//` for single line comments
+
+```js
+// bad
+function getType () {
+	console.log('fetching type...');
+    /** set the default type to 'no type' */
+	var type = this._type || 'no type';
+
+	return type;
+}
+
+// good
+function getType () {
+	console.log('fetching type...');
+
+	// set the default type to 'no type'
+	var type = this._type || 'no type';
+
+	return type;
+}
+```
+
+### Whitespace
+
+#### Use tabs to indent your code
+
+```js
+// bad
+function () {
+∙∙∙∙var name;
+}
+
+// bad
+function () {
+∙var name;
+}
+
+// good
+function () {
+	var name;
+}
+```
+
+#### Place 1 space before the leading brace.
+
+```js
+// bad
+function test (){
+  console.log('test');
+}
+
+// good
+function test () {
+  console.log('test');
+}
+```
+
+#### Place 1 space before opening parenthesis
+
+```js
+// bad
+if(isJedi) {
+  fight ();
+}
+
+// good
+if (isJedi) {
+  fight();
+}
+
+// bad
+function fight() {
+  console.log ('Swooosh!');
+}
+
+// good
+function fight () {
+  console.log('Swooosh!');
+}
+```
+
+#### Set off operators with spaces
+
+```js
+// bad
+var x=y+5;
+
+// good
+var x = y + 5;
+```
+
+### Commas
+
+#### *Don't* use leading commas
+
+```js
+// bad
+var story = [
+	once
+	,upon
+	,aTime
+];
+
+// good
+var story = [
+	once,
+	upon,
+	aTime
+];
+
+// bad
+var hero = {
+	firstName: 'Bob'
+	,lastName: 'Parr'
+	,heroName: 'Mr. Incredible'
+	,superPower: 'strength'
+};
+
+// good
+var hero = {
+	firstName: 'Bob',
+	lastName: 'Parr',
+	heroName: 'Mr. Incredible',
+	superPower: 'strength'
+};
+```
+
+#### *Don't* place an additional trailing comma
+
+```js
+// bad
+var hero = {
+	firstName: 'Kevin',
+	lastName: 'Flynn',
+};
+
+var heroes = [
+	'Batman',
+	'Superman',
+];
+
+// good
+var hero = {
+	firstName: 'Kevin',
+	lastName: 'Flynn'
+};
+
+var heroes = [
+	'Batman',
+	'Superman'
+];
+```
+
+This can cause problems with IE6/7 and IE9 if it's in quirksmode. Also, in some implementations of ES3 would add length to an array if it had an additional trailing comma. This was clarified in ES5 ([source](http://es5.github.io/#D)):
+
+> Edition 5 clarifies the fact that a trailing comma at the end of an ArrayInitialiser does not add to the length of the array. This is not a semantic change from Edition 3 but some implementations may have previously misinterpreted this.
+
 ## Recommendations
 
 ### Objects
@@ -358,4 +569,21 @@ if (collection.length > 0) {
 if (collection.length) {
 	// ...stuff...
 }
+```
+
+### Whitespace
+
+#### Use indentation when making long method chains
+Use a leading dot, which emphasizes that the line is a method call, not a new statement.
+
+```js
+// bad
+var DraftOrderLine = (OrderLineApi.getOrderLine()).setPrice(1.00).setAmount(1200).setProductId(1).setDescription('Foobar');
+
+// good
+var DraftOrderLine = (OrderLineApi.getOrderLine())
+	.setPrice(1.00)
+	.setAmount(1200)
+	.setProductId(1)
+	.setDescription('Foobar');
 ```
