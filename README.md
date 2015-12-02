@@ -206,7 +206,7 @@ For more information see [Truth Equality and JavaScript](http://javascriptweblog
 ```js
 // bad
 if (test)
-  return false;
+	return false;
 
 // bad
 if (test) return false;
