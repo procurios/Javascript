@@ -132,7 +132,6 @@ if (currentUser) {
 }
 
 // good
-var test;
 if (currentUser) {
 	test = function test () {
 		console.log('Yup.');
