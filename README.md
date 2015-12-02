@@ -7,6 +7,66 @@ The Javascript style guide used at Procurios is inspired by and laid on top of [
 
 Our style guides makes a distinction between `rules` and `recommendation`. A rule must be followed, but it is allowed to break with recommendations if there's a good reason to do so.
 
+## Table of Contents
+
+- [Rules](#)
+	- [Strings](#strings)
+		- [Quotes](#quotes)
+	- [Functions](#functions)
+		- [Declaration](#declaration)
+		- [Never declare a function in a non-function block](#never-declare-a-function-in-a-non-function-block)
+	- [Variables](#variables)
+		- [Always use var](#always-use-var)
+		- [One var declaration per variable](#one-var-declaration-per-variable)
+	- [Comparison Operators & Equality](#comparison-operators--equality)
+		- [Use === and !== over == and !=](#use--and--over--and-)
+	- [Blocks](#blocks)
+		- [Use braces with all multi-line blocks](#use-braces-with-all-multi-line-blocks)
+		- [Put else on the same line as your if block's closing brace](#put-else-on-the-same-line-as-your-if-blocks-closing-brace)
+	- [Comments](#comments)
+		- [Use /** ... */ for multi-line comments](#use----for-multi-line-comments)
+		- [Use // for single line comments](#use--for-single-line-comments)
+	- [Whitespace](#whitespace)
+		- [Use tabs to indent your code](#use-tabs-to-indent-your-code)
+		- [Place 1 space before the leading brace.](#place-1-space-before-the-leading-brace)
+		- [Place 1 space before opening parenthesis](#place-1-space-before-opening-parenthesis)
+		- [Set off operators with spaces](#set-off-operators-with-spaces)
+	- [Commas](#commas)
+		- [Don't use leading commas](#dont-use-leading-commas)
+		- [Don't place an additional trailing comma](#dont-place-an-additional-trailing-comma)
+	- [Semicolons](#semicolons)
+		- [Never leave out semicolons](#never-leave-out-semicolons)
+	- [Naming](#naming)
+		- [Use camelCase when naming variables, objects and functions](#use-camelcase-when-naming-variables-objects-and-functions)
+		- [Use PascalCase when naming instances, constructors or classes](#use-pascalcase-when-naming-instances-constructors-or-classes)
+		- [When saving a reference to this use _this](#when-saving-a-reference-to-this-use-_this)
+	- [Modules (requirejs)](#modules-requirejs)
+- [Recommendations](#recommendations)
+	- [Objects](#objects)
+		- [Creation](#creation)
+	- [Arrays](#arrays)
+		- [Creation](#creation-1)
+		- [Copying](#copying)
+		- [Converting](#converting)
+	- [Functions](#functions)
+		- [Don't name a parameter arguments](#dont-name-a-parameter-arguments)
+	- [Variables](#variables)
+		- [Declare unassigned variables last](#declare-unassigned-variables-last)
+		- [Assign variables at the top of their scope](#assign-variables-at-the-top-of-their-scope)
+	- [Comparison Operators & Equality](#comparison-operators--equality-1)
+		- [Use shortcuts](#use-shortcuts)
+	- [Whitespace](#whitespace)
+		- [Use indentation when making long method chains](#use-indentation-when-making-long-method-chains)
+	- [Type Casting & Coercion](#type-casting--coercion)
+		- [Perform type coercion at the beginning of the statement.](#perform-type-coercion-at-the-beginning-of-the-statement)
+		- [Be careful when using bitshift operations](#be-careful-when-using-bitshift-operations)
+	- [Naming](#naming)
+		- [Be descriptive with your naming](#be-descriptive-with-your-naming)
+		- [Name your functions](#name-your-functions)
+	- [Constructors](#constructors)
+		- [Assign methods to the prototype object](#assign-methods-to-the-prototype-object)
+		- [return this to help with method chaining](#return-this-to-help-with-method-chaining)
+
 ## Rules
 
 ### Strings
@@ -34,7 +94,7 @@ var greeting = "Hi Bob! How is the weather today?";
 var greeting = "Hi Bob! How's the weather today?";
 ```
 
-[↑ back to top](#readme)
+[↑ back to top](#table-of-contents)
 
 ### Functions
 
@@ -80,7 +140,7 @@ if (currentUser) {
 }
 ```
 
-[↑ back to top](#readme)
+[↑ back to top](#table-of-contents)
 
 ### Variables
 
@@ -117,7 +177,7 @@ var goSportsTeam = true;
 var dragonball = 'z';
 ```
 
-[↑ back to top](#readme)
+[↑ back to top](#table-of-contents)
 
 ### Comparison Operators & Equality
 
@@ -137,7 +197,7 @@ if (isCollapsed === true) {
 
 For more information see [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
 
-[↑ back to top](#readme)
+[↑ back to top](#table-of-contents)
 
 ### Blocks
 
@@ -186,7 +246,7 @@ if (test) {
 }
 ```
 
-[↑ back to top](#readme)
+[↑ back to top](#table-of-contents)
 
 ### Comments
 
@@ -243,7 +303,7 @@ function getType () {
 }
 ```
 
-[↑ back to top](#readme)
+[↑ back to top](#table-of-contents)
 
 ### Whitespace
 
@@ -314,7 +374,7 @@ var x=y+5;
 var x = y + 5;
 ```
 
-[↑ back to top](#readme)
+[↑ back to top](#table-of-contents)
 
 ### Commas
 
@@ -382,7 +442,7 @@ This can cause problems with IE6/7 and IE9 if it's in quirksmode. Also, in some 
 
 > Edition 5 clarifies the fact that a trailing comma at the end of an ArrayInitialiser does not add to the length of the array. This is not a semantic change from Edition 3 but some implementations may have previously misinterpreted this.
 
-[↑ back to top](#readme)
+[↑ back to top](#table-of-contents)
 
 ### Semicolons
 
@@ -410,7 +470,7 @@ This can cause problems with IE6/7 and IE9 if it's in quirksmode. Also, in some 
 
 [Read more](http://stackoverflow.com/a/7365214/1712802) about guarding IIFEs.
 
-[↑ back to top](#readme)
+[↑ back to top](#table-of-contents)
 
 ### Naming
 
@@ -469,7 +529,7 @@ function () {
 }
 ```
 
-[↑ back to top](#readme)
+[↑ back to top](#table-of-contents)
 
 ### Modules (requirejs)
 
@@ -525,7 +585,7 @@ var item = {};
  - `{}` is shorter (less typing, KISS)
  - `{}` can be partially optimized at parse time
 
-[↑ back to top](#readme)
+[↑ back to top](#table-of-contents)
 
 ### Arrays
 
@@ -573,7 +633,7 @@ function trigger () {
 }
 ```
 
-[↑ back to top](#readme)
+[↑ back to top](#table-of-contents)
 
 ### Functions
 
@@ -593,7 +653,7 @@ function yup (name, options, args) {
 }
 ```
 
-[↑ back to top](#readme)
+[↑ back to top](#table-of-contents)
 
 ### Variables
 
@@ -687,7 +747,7 @@ function() {
 }
 ```
 
-[↑ back to top](#readme)
+[↑ back to top](#table-of-contents)
 
 ### Comparison Operators & Equality
 
@@ -715,7 +775,7 @@ if (collection.length) {
 }
 ```
 
-[↑ back to top](#readme)
+[↑ back to top](#table-of-contents)
 
 ### Whitespace
 
@@ -734,7 +794,7 @@ var DraftOrderLine = (OrderLineApi.getOrderLine())
 	.setDescription('Foobar');
 ```
 
-[↑ back to top](#readme)
+[↑ back to top](#table-of-contents)
 
 ### Type Casting & Coercion
 
@@ -764,7 +824,7 @@ Numbers are represented as [64-bit values](http://es5.github.io/#x4.3.19), but B
 2147483649 >> 0 //=> -2147483647
 ```
 
-[↑ back to top](#readme)
+[↑ back to top](#table-of-contents)
 
 ### Naming
 
@@ -798,7 +858,7 @@ var log = function log (msg) {
 };
 ```
 
-[↑ back to top](#readme)
+[↑ back to top](#table-of-contents)
 
 ### Constructors
 
