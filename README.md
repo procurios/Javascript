@@ -487,7 +487,7 @@ var thisIsMyObject = {};
 function thisIsMyFunction () {}
 ```
 
-#### Use PascalCase when naming instances, constructors or classes
+#### Use PascalCase when naming constructors or classes
 
 ```js
 // bad
@@ -504,8 +504,26 @@ function User (options) {
 	this.name = options.name;
 }
 
-var User = new User({
+var user = new User({
 	name: 'yup'
+});
+
+// bad
+function OrderLine (options) {
+	this.amount = options.amount;
+}
+
+var OrderLine = new OrderLine({
+	amount: 100
+});
+
+// good
+function OrderLine (options) {
+	this.amount = options.amount;
+}
+
+var orderLine = new OrderLine({
+	amount: 100
 });
 ```
 
