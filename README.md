@@ -126,7 +126,7 @@ Assign the function to a variable instead. Browsers will allow you to do it, but
 ```js
 // bad
 if (currentUser) {
-	function test() {
+	function test () {
 		console.log('Nope.');
 	}
 }
@@ -134,7 +134,7 @@ if (currentUser) {
 // good
 var test;
 if (currentUser) {
-	test = function test() {
+	test = function test () {
 		console.log('Yup.');
 	};
 }
