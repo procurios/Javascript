@@ -114,7 +114,7 @@ var named = function named () {
 };
 
 // immediately-invoked function expression (IIFE)
-(function () {
+;(function () {
 	console.log('Welcome to the Internet. Please follow me.');
 })();
 ```
@@ -208,7 +208,7 @@ For more information see [Truth Equality and JavaScript](http://javascriptweblog
 if (test)
   return false;
 
-// good
+// bad
 if (test) return false;
 
 // good
