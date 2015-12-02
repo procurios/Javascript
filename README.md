@@ -185,12 +185,12 @@ var dragonball = 'z';
 
 ```js
 // bad
-if (isCollapsed == true) {
+if (a == b) {
 	// do stuff
 }
 
 // good
-if (isCollapsed === true) {
+if (a === b) {
 	// do stuff
 }
 ```
