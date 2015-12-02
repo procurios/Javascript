@@ -34,6 +34,8 @@ var greeting = "Hi Bob! How is the weather today?";
 var greeting = "Hi Bob! How's the weather today?";
 ```
 
+[↑ back to top](#readme)
+
 ### Functions
 
 #### Declaration
@@ -78,6 +80,8 @@ if (currentUser) {
 }
 ```
 
+[↑ back to top](#readme)
+
 ### Variables
 
 #### Always use `var`
@@ -113,6 +117,8 @@ var goSportsTeam = true;
 var dragonball = 'z';
 ```
 
+[↑ back to top](#readme)
+
 ### Comparison Operators & Equality
 
 #### Use `===` and `!==` over `==` and `!=`
@@ -130,6 +136,8 @@ if (isCollapsed === true) {
 ```
 
 For more information see [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
+
+[↑ back to top](#readme)
 
 ### Blocks
 
@@ -177,6 +185,8 @@ if (test) {
 	thing3();
 }
 ```
+
+[↑ back to top](#readme)
 
 ### Comments
 
@@ -232,6 +242,8 @@ function getType () {
 	return type;
 }
 ```
+
+[↑ back to top](#readme)
 
 ### Whitespace
 
@@ -302,6 +314,8 @@ var x=y+5;
 var x = y + 5;
 ```
 
+[↑ back to top](#readme)
+
 ### Commas
 
 #### *Don't* use leading commas
@@ -368,6 +382,128 @@ This can cause problems with IE6/7 and IE9 if it's in quirksmode. Also, in some 
 
 > Edition 5 clarifies the fact that a trailing comma at the end of an ArrayInitialiser does not add to the length of the array. This is not a semantic change from Edition 3 but some implementations may have previously misinterpreted this.
 
+[↑ back to top](#readme)
+
+### Semicolons
+
+#### Never leave out semicolons
+
+```js
+// bad
+(function() {
+	var name = 'Skywalker'
+	return name
+})()
+
+// good
+(function() {
+	var name = 'Skywalker';
+	return name;
+})();
+
+// good (guards against the function becoming an argument when two files with IIFEs are concatenated)
+;(function() {
+	var name = 'Skywalker';
+	return name;
+})();
+```
+
+[Read more](http://stackoverflow.com/a/7365214/1712802) about guarding IIFEs.
+
+[↑ back to top](#readme)
+
+### Naming
+
+#### Use camelCase when naming variables, objects and functions
+
+```js
+// bad
+var OBJEcttsssss = {};
+var this_is_my_object = {};
+var o = {};
+function c () {}
+
+// good
+var thisIsMyObject = {};
+function thisIsMyFunction () {}
+```
+
+#### Use PascalCase when naming instances, constructors or classes
+
+```js
+// bad
+function user (options) {
+	this.name = options.name;
+}
+
+var user = new user({
+	name: 'nope'
+});
+
+// good
+function User (options) {
+	this.name = options.name;
+}
+
+var User = new User({
+	name: 'yup'
+});
+```
+
+#### When saving a reference to this use _this
+
+```js
+// bad
+function () {
+	var self = this;
+}
+
+// bad
+function () {
+  var that = this;
+}
+
+// good
+function () {
+  var _this = this;
+}
+```
+
+[↑ back to top](#readme)
+
+### Modules (requirejs)
+
+* The file should be named with PascalCase, and match the name of the single export.
+* Always declare `'use strict';` at the top of the module.
+* Wrap your module in a IIFE if it contains dynamic dependencies.
+
+Example:
+
+```js
+;(function () {
+	'use strict';
+
+	var dependencies = [];
+
+	if (!('classList' in document.createElement('p'))) {
+		dependencies.push('path/to/classList.min.js');
+	}
+
+	define(dependencies,
+		/**
+		 * @returns {ExampleModule}
+		 */
+		function () {
+			var ExampleModule = function () {
+				// stuff
+			}
+
+			return ExampleModule;
+		}
+	);
+})();
+```
+
 ## Recommendations
 
 ### Objects
@@ -388,6 +524,8 @@ var item = {};
  - `new Object()` can be shadowed (and might have a different return value than expected)
  - `{}` is shorter (less typing, KISS)
  - `{}` can be partially optimized at parse time
+
+[↑ back to top](#readme)
 
 ### Arrays
 
@@ -435,6 +573,8 @@ function trigger () {
 }
 ```
 
+[↑ back to top](#readme)
+
 ### Functions
 
 #### Don't name a parameter `arguments`
@@ -452,6 +592,8 @@ function yup (name, options, args) {
 	// ...stuff...
 }
 ```
+
+[↑ back to top](#readme)
 
 ### Variables
 
@@ -545,6 +687,8 @@ function() {
 }
 ```
 
+[↑ back to top](#readme)
+
 ### Comparison Operators & Equality
 
 #### Use shortcuts
@@ -571,6 +715,8 @@ if (collection.length) {
 }
 ```
 
+[↑ back to top](#readme)
+
 ### Whitespace
 
 #### Use indentation when making long method chains
@@ -586,4 +732,135 @@ var DraftOrderLine = (OrderLineApi.getOrderLine())
 	.setAmount(1200)
 	.setProductId(1)
 	.setDescription('Foobar');
+```
+
+[↑ back to top](#readme)
+
+### Type Casting & Coercion
+
+#### Perform type coercion at the beginning of the statement.
+
+```js
+// bad
+var totalScore = this.reviewScore + '';
+
+// good
+var totalScore = '' + this.reviewScore;
+
+// bad
+var totalScore = '' + this.reviewScore + ' total score';
+
+// good
+var totalScore = this.reviewScore + ' total score';
+```
+
+#### Be careful when using bitshift operations
+
+Numbers are represented as [64-bit values](http://es5.github.io/#x4.3.19), but Bitshift operations always return a 32-bit integer ([source](http://es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. Discussion. Largest signed 32-bit Int is 2,147,483,647:
+
+```js
+2147483647 >> 0 //=> 2147483647
+2147483648 >> 0 //=> -2147483648
+2147483649 >> 0 //=> -2147483647
+```
+
+[↑ back to top](#readme)
+
+### Naming
+
+#### Be descriptive with your naming
+
+```js
+// bad
+function q () {
+  // ...stuff...
+}
+
+// good
+function query () {
+  // ..stuff..
+}
+```
+
+#### Name your functions
+
+This is helpful for stack traces.
+
+```js
+// bad
+var log = function (msg) {
+	console.log(msg);
+};
+
+// good
+var log = function log (msg) {
+	console.log(msg);
+};
+```
+
+[↑ back to top](#readme)
+
+### Constructors
+
+#### Assign methods to the prototype object
+
+... instead of overwriting the prototype with a new object. Overwriting the prototype makes inheritance impossible: by resetting the prototype you'll overwrite the base!
+
+```js
+function Jedi () {
+	console.log('new jedi');
+}
+
+// bad
+Jedi.prototype = {
+	fight: function fight () {
+		console.log('fighting');
+	},
+	block: function block () {
+		console.log('blocking');
+	}
+};
+
+// good
+Jedi.prototype.fight = function fight () {
+	console.log('fighting');
+};
+
+Jedi.prototype.block = function block () {
+	console.log('blocking');
+};
+```
+
+#### return `this` to help with method chaining
+
+```js
+// bad
+Jedi.prototype.jump = function () {
+	this.jumping = true;
+    return true;
+};
+
+Jedi.prototype.setHeight = function (height) {
+	this.height = height;
+};
+
+var Luke = new Jedi();
+Luke.jump(); // => true
+Luke.setHeight(20); // => undefined
+
+// good
+Jedi.prototype.jump = function () {
+	this.jumping = true;
+	return this;
+};
+
+Jedi.prototype.setHeight = function (height) {
+	this.height = height;
+	return this;
+};
+
+var Luke = new Jedi();
+
+Luke.jump()
+	.setHeight(20);
 ```
