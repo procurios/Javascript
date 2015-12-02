@@ -205,22 +205,22 @@ For more information see [Truth Equality and JavaScript](http://javascriptweblog
 ```js
 // bad
 if (test)
-	return false;
+	// do something
 
 // bad
-if (test) return false;
+if (test) // do something
 
 // good
 if (test) {
-	return false;
+	// do something
 }
 
 // bad
-function () { return false; }
+function () { // do something }
 
 // good
 function () {
-	return false;
+	// do something
 }
 ```
 
