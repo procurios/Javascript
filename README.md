@@ -55,7 +55,7 @@ Our style guides makes a distinction between `rules` and `recommendation`. A rul
 		- [Assign variables at the top of their scope](#assign-variables-at-the-top-of-their-scope)
 	- [Comparison Operators & Equality](#comparison-operators--equality-1)
 		- [Use shortcuts](#use-shortcuts)
-	- [Whitespace](#whitespace)
+	- [Whitespace](#whitespace-1)
 		- [Use indentation when making long method chains](#use-indentation-when-making-long-method-chains)
 	- [Type Casting & Coercion](#type-casting--coercion)
 		- [Perform type coercion at the beginning of the statement.](#perform-type-coercion-at-the-beginning-of-the-statement)
