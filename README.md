@@ -192,10 +192,10 @@ Always use var to declare variables. Not doing so will result in global variable
 
 ```js
 // bad
-Car = new Car();
+car = new Car();
 
 // good
-var Car = new Car();
+var car = new Car();
 ```
 
 #### One `var` declaration per variable
