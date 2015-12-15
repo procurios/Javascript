@@ -267,6 +267,8 @@ function () {
 }
 ```
 
+[↑ back to top](#table-of-contents)
+
 #### Put `else` on the same line as your `if` block's closing brace
 
 ```js
@@ -322,6 +324,8 @@ function make (tag) {
 }
 ```
 
+[↑ back to top](#table-of-contents)
+
 #### Use `//` for single line comments
 
 ```js
@@ -368,6 +372,8 @@ function () {
 }
 ```
 
+[↑ back to top](#table-of-contents)
+
 #### Place 1 space before the leading brace.
 
 ```js
@@ -381,6 +387,8 @@ function test () {
   console.log('test');
 }
 ```
+
+[↑ back to top](#table-of-contents)
 
 #### Place 1 space before opening parenthesis
 
@@ -405,6 +413,8 @@ function fight () {
   console.log('Swooosh!');
 }
 ```
+
+[↑ back to top](#table-of-contents)
 
 #### Set off operators with spaces
 
@@ -453,6 +463,8 @@ var hero = {
 	superPower: 'strength'
 };
 ```
+
+[↑ back to top](#table-of-contents)
 
 #### *Don't* place an additional trailing comma
 
@@ -530,6 +542,8 @@ var thisIsMyObject = {};
 function thisIsMyFunction () {}
 ```
 
+[↑ back to top](#table-of-contents)
+
 #### Use PascalCase when naming constructors or classes
 
 ```js
@@ -569,6 +583,8 @@ var orderLine = new OrderLine({
 	amount: 100
 });
 ```
+
+[↑ back to top](#table-of-contents)
 
 #### When saving a reference to this use _this
 
@@ -624,6 +640,8 @@ Example:
 })();
 ```
 
+[↑ back to top](#table-of-contents)
+
 ## Recommendations
 
 ### Objects
@@ -666,6 +684,8 @@ Using `[]` has the following advantages:
 - It can't be shadowed (always has the same return value).
 - Less typing.
 
+[↑ back to top](#table-of-contents)
+
 #### Copying
 When you need to copy an array use `Array#slice`. It's [fast](http://jsperf.com/converting-arguments-to-an-array/7).
 
@@ -682,6 +702,8 @@ for (i = 0; i < len; i++) {
 // good
 itemsCopy = items.slice();
 ```
+
+[↑ back to top](#table-of-contents)
 
 #### Converting
 To convert an array-like object to an array, use `Array#slice`.
@@ -741,6 +763,8 @@ var dragonball;
 var length;
 var i;
 ```
+
+[↑ back to top](#table-of-contents)
 
 #### Assign variables at the top of their scope
 
@@ -874,6 +898,8 @@ var totalScore = '' + this.reviewScore + ' total score';
 var totalScore = this.reviewScore + ' total score';
 ```
 
+[↑ back to top](#table-of-contents)
+
 #### Be careful when using bitshift operations
 
 Numbers are represented as [64-bit values](http://es5.github.io/#x4.3.19), but Bitshift operations always return a 32-bit integer ([source](http://es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. Discussion. Largest signed 32-bit Int is 2,147,483,647:
@@ -901,6 +927,8 @@ function query () {
   // ..stuff..
 }
 ```
+
+[↑ back to top](#table-of-contents)
 
 #### Name your functions
 
@@ -951,6 +979,8 @@ Jedi.prototype.block = function block () {
 };
 ```
 
+[↑ back to top](#table-of-contents)
+
 #### return `this` to help with method chaining
 
 ```js
@@ -984,3 +1014,5 @@ var Luke = new Jedi();
 Luke.jump()
 	.setHeight(20);
 ```
+
+[↑ back to top](#table-of-contents)
