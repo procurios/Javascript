@@ -14,6 +14,7 @@ Our style guides makes a distinction between `rules` and `recommendation`. A rul
 		- [Quotes](#quotes)
 	- [Functions](#functions)
 		- [Declaration](#declaration)
+		- [Always name functions](#always-name-functions)
 		- [Never declare a function in a non-function block](#never-declare-a-function-in-a-non-function-block)
 	- [Variables](#variables)
 		- [Always use var](#always-use-var)
@@ -100,24 +101,66 @@ var greeting = "Hi Bob! How's the weather today?";
 
 #### Declaration
 
-This is how we write function expressions. Note the space before the parentheses that emphasizes the difference between a function call and its definition.
+We use one of the following ways to declare a function:
 
 ```js
-// anonymous function expression
-var anonymous = function () {
-	return true;
-};
+// 1. A function defined with the Function constructor assigned to the variable multiply
+function multiply (x, y) {
+	return x * y;
+}
 
-// named function expression
-var named = function named () {
-	return true;
+// 2. A function expression of a function named func_name assigned to the variable multiply
+var multiply = function funcName (x, y) {
+	return x * y;
 };
+```
 
-// immediately-invoked function expression (IIFE)
+Both do approximately the same thing, with a few subtle differences. Instead of forcing a way to declare a function, inform yourself so you know what happens when you pick a one ([read more](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions#Function_constructor_vs._function_declaration_vs._function_expression)).
+
+There's an exception for immediately-invoked function expressions (IIFE):
+
+```js
 ;(function () {
 	console.log('Welcome to the Internet. Please follow me.');
 })();
 ```
+
+An IIFE starts with a semicolon to prevent errors when concatenating files.
+
+[↑ back to top](#table-of-contents)
+
+#### Always name functions
+
+Naming functions:
+
+- makes code easier to read.
+- gets you stacktraces that reference actual function names.
+
+For example:
+
+```js
+// bad
+function (x, y) {
+	return x * y;
+}
+
+// bad
+var multiply = function (x, y) {
+	return x * y;
+}
+
+// good
+function multiply (x, y) {
+	return x * y;
+}
+
+// good
+var multiply = function multiply (x, y) {
+	return x * y;
+}
+```
+
+[↑ back to top](#table-of-contents)
 
 #### Never declare a function in a non-function block
 
